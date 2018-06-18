@@ -1,0 +1,23 @@
+{
+  "name": "eventdrivengameserver",
+  "version": "1.0.0",
+  "description": "EventDrivenGameServer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DomenikIrrgang/EventDrivenGameServer.git"
+  },
+  "author": "Domenik Irrgang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DomenikIrrgang/EventDrivenGameServer/issues"
+  },
+  "homepage": "https://github.com/DomenikIrrgang/EventDrivenGameServer#readme",
+  "dependencies": {
+    "npm": "^6.1.0",
+    "typescript": "^2.9.2"
+  }
+}
