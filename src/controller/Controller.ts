@@ -1,5 +1,10 @@
 import { controllerManager } from "./ControllerManager";
 
+/**
+ * Mark a class a controller. A controller needs to be exported in some file in order to be loaded automatically.
+ * 
+ * @param path Path under which all routes will be available.
+ */
 export function Controller(path: string) {
     return (target: any) => {
         target.basePath = path;
@@ -8,6 +13,11 @@ export function Controller(path: string) {
     }
 }
 
+/**
+ * Marks a function to be mounted as an endpoint for GET requests.
+ * 
+ * @param path Path under which the endpoint will be mounted. (ControllerPath + "/" + path)
+ */
 export function Get(path: string) {
     return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
         checkRequestCallbackArrayExists(target);
@@ -15,6 +25,11 @@ export function Get(path: string) {
     }
 }
 
+/**
+ * Marks a function to be mounted as an endpoint for POST requests.
+ * 
+ * @param path Path under which the endpoint will be mounted. (ControllerPath + "/" + path)
+ */
 export function Post(path: string) {
     return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
         checkRequestCallbackArrayExists(target);
@@ -22,6 +37,11 @@ export function Post(path: string) {
     }
 }
 
+/**
+ * Marks a function to be mounted as an endpoint for DELETE requests.
+ * 
+ * @param path Path under which the endpoint will be mounted. (ControllerPath + "/" + path)
+ */
 export function Delete(path: string) {
     return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
         checkRequestCallbackArrayExists(target);
@@ -29,6 +49,11 @@ export function Delete(path: string) {
     }
 }
 
+/**
+ * Marks a function to be mounted as an endpoint for PUT requests.
+ * 
+ * @param path Path under which the endpoint will be mounted. (ControllerPath + "/" + path)
+ */
 export function Put(path: string) {
     return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
         checkRequestCallbackArrayExists(target);
