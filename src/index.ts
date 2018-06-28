@@ -1,4 +1,4 @@
-import { RouteManager } from "./RouteManager";
+import { RouteManager } from "./routing/RouteManager";
 import * as Express from "express"
 
 export { FileController } from "./controller/FileController";

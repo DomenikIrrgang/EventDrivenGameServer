@@ -1,5 +1,6 @@
-import { Controller, Get } from "./Controller";
 import { Request, Response } from "express";
+import { Controller } from "../decorators/Controller";
+import { Get } from "../decorators/Get";
 
 @Controller("file")
 export class FileController {
