@@ -4,5 +4,5 @@ export interface Endpoint {
 	path: string;
 	method: string;
 	middlewares: Middleware[];
-    callback: Function;
+    callback: string;
 }

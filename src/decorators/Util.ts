@@ -1,8 +1,9 @@
 import { Controller } from "../controller/Controller";
 import { EndpointOptions } from "../controller/EndpointOptions";
 
-export function addEndpoint(target: Controller, options: EndpointOptions, callback: Function) {
-    target.endpoints.push({
+export function addEndpoint(target: any, options: EndpointOptions, callback: string) {
+    checkEndpointsExist(target);
+    target.__proto__.endpoints.push({
         method: options.method,
         middlewares: options.middlewares,
         path: options.path,
@@ -10,8 +11,8 @@ export function addEndpoint(target: Controller, options: EndpointOptions, callba
     })
 }
 
-export function checkEndpointsExist(target: Controller) {
-    if (target.endpoints === undefined) {
-        target.endpoints = [];
+export function checkEndpointsExist(target: any) {
+    if (target.__proto__.endpoints === undefined) {
+        target.__proto__.endpoints = [];
     }
 }

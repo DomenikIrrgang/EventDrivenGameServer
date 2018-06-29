@@ -11,12 +11,11 @@ import { HttpMethod } from "../routing/HttpMethod";
  */
 export function Get(options: MethodEndpointOptions) {
     return function (target: Controller, propertyKey: string, descriptor: PropertyDescriptor) {
-        checkEndpointsExist(target);
         let endpointOptions: EndpointOptions = {
             method: HttpMethod.GET,
             middlewares: options.middlewares,
             path: options.path
         }
-        addEndpoint(target, endpointOptions, target[propertyKey]);
+        addEndpoint(target, endpointOptions, propertyKey);
     }
 }

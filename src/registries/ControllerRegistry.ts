@@ -1,18 +1,9 @@
 import { Controller } from "../controller/Controller";
+import { Registry } from "./Registry";
 
 
-class ControllerRegistry {
-	private controllers: any[] = [];
+class ControllerRegistry extends Registry<Controller> {
 
-	constructor() {}
-
-	public getAllController(): Controller[] {
-		return this.controllers;
-	}
-
-	public addController(controller: Controller) {
-		this.controllers.push(controller);
-	}
 }
 
 export let controllerRegistry: ControllerRegistry = new ControllerRegistry();

@@ -5,6 +5,7 @@ import { Get } from "./decorators/Get";
 import { ExpressRequest } from "./decorators/Request";
 import { Endpoint } from "./decorators/Endpoint";
 import { HttpMethod } from "./routing/HttpMethod";
+import { TestServer } from "./TestServer";
 
 @ControllerSettings({
 	path: "feedback",
@@ -12,7 +13,7 @@ import { HttpMethod } from "./routing/HttpMethod";
 })
 export class FeedbackController extends Controller {
 
-	constructor() {
+	constructor(private testServer: TestServer) {
 		super();
 	}
 

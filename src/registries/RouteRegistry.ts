@@ -2,6 +2,7 @@ import { Router, Request, Response } from "express";
 import { controllerRegistry } from "../registries/ControllerRegistry";
 import { NextFunction } from "express-serve-static-core";
 import { Endpoint } from "../controller/Endpoint";
+import { injector } from "../injection/Injector";
 
 /**
  * Handles all route related processes.
@@ -15,12 +16,13 @@ class RouteRegistry {
 	 * @param router Express Router the routes will be mounted on.
 	 */
 	public mountRoutes(router: Router): void {
-		for (let controller of controllerRegistry.getAllController()) {
-			for (let endpoint of controller["prototype"].endpoints) {
+		for (let controllerDefinition of controllerRegistry.getRegisteredItems()) {
+			let controller = injector.getInstance(controllerDefinition);
+			for (let endpoint of controller.endpoints) {
 				router[endpoint.method]("/" + controller.path + "/" + endpoint.path, (request: Request, response: Response, next: NextFunction) => {
 					this.handleMiddleware(endpoint, request, response).then(next);
 				}, (request: Request, response: Response) => {
-					endpoint.callback(request, response);
+					controller[endpoint.callback](request, response);
 				});
 			}
 		}

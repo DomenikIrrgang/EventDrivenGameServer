@@ -1,18 +1,8 @@
 import { App } from "../core/App";
+import { Registry } from "./Registry";
 
 
-class AppRegistry {
-	private apps: App[] = [];
-
-	constructor() {}
-
-	public getAllAps(): App[] {
-		return this.apps;
-	}
-
-	public addApp(app: App) {
-		this.apps.push(app);
-	}
+class AppRegistry extends Registry<App> {
 }
 
 export let appRegistry: AppRegistry = new AppRegistry();

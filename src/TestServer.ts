@@ -1,7 +1,6 @@
 import { ServerSettings } from "./decorators/ServerSettings";
 import { Server } from "./routing/Server";
 
-
 @ServerSettings({
 	port: 8080
 })

@@ -1,18 +1,8 @@
 import { Server } from "../routing/Server";
+import { Registry } from "./Registry";
 
 
-class ServerRegistry {
-	private servers: any[] = [];
-
-	constructor() {}
-
-	public getAllServer(): Server[] {
-		return this.servers;
-	}
-
-	public addServer(server: Server) {
-		this.servers.push(server);
-	}
+class ServerRegistry extends Registry<Server> {
 }
 
 export let serverRegistry: ServerRegistry = new ServerRegistry();

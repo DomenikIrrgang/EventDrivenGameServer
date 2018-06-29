@@ -9,7 +9,6 @@ import { checkEndpointsExist, addEndpoint } from "./Util";
  */
 export function Endpoint(options: EndpointOptions) {
     return function (target: Controller, propertyKey: string, descriptor: PropertyDescriptor) {
-		checkEndpointsExist(target);
-        addEndpoint(target, options, target[propertyKey]);
+        addEndpoint(target, options, propertyKey);
     }
 }

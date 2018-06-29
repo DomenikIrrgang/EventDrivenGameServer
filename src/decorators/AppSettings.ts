@@ -9,11 +9,11 @@ import { Server } from "../routing/Server";
  */
 export function AppSettings(options: AppOptions) {
     return (target: any) => {
-		target.plugins = options.plugins;
-		target.middlewares = options.middlewares;
-		target.controllers = options.controllers;
-		target.server = options.server;
-        appRegistry.addApp(target);
+		target.prototype.plugins = options.plugins;
+		target.prototype.middlewares = options.middlewares;
+		target.prototype.controllers = options.controllers;
+		target.prototype.server = options.server;
+        appRegistry.registerItem(target);
     }
 }
 

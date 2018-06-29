@@ -1,4 +1,5 @@
 import { controllerRegistry } from "../registries/ControllerRegistry";
+import { Controller } from "../controller/Controller";
 
 /**
  * Mark a class a controller. A controller needs to be exported in some file in order to be loaded automatically.
@@ -7,9 +8,9 @@ import { controllerRegistry } from "../registries/ControllerRegistry";
  */
 export function ControllerSettings(options: ControllerOptions) {
     return (target: any) => {
-        target.path = options.path;
-        target.middlewares = options.middlewares;
-        controllerRegistry.addController(target);
+        target.prototype.path = options.path;
+        target.prototype.middlewares = options.middlewares;
+        controllerRegistry.registerItem(target);
     }
 }
 
