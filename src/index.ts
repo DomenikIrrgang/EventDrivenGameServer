@@ -1,13 +1,5 @@
-import { RouteManager } from "./routing/RouteManager";
-import * as Express from "express"
+import { TestApp } from "./TestApp";
+import { App } from "./core/App";
 
-export { FileController } from "./controller/FileController";
-export { FeedbackController } from "./controller/FeedbackController";
-
-let express = Express();
-let routeManager: RouteManager = new RouteManager();
-routeManager.mountRoutes(express);
-
-const server = express.listen(8080, () => {
-	console.log("Server is running.");
-});
+let app: App = new TestApp();
+app.setup();
